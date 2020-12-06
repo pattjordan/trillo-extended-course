@@ -1,0 +1,43 @@
+.container {
+    max-width: 120rem; // If width < 120rem; takes up 100%
+    margin: 8rem auto; // centers container inside parent (here: body element)
+    background-color: var(--color-grey-light-1);
+    box-shadow: 0 2rem 6rem rgba(0, 0, 0, .3);
+
+    min-height: 50rem;
+}
+
+.header {
+    font-size: 1.4rem;
+    height: 7rem; 
+    background-color: #fff;
+    border-bottom: var(--color-grey-light-2);
+
+    display: flex;
+    justify-content: space-between; // Align main axis, evently distribute items
+    align-items: center; // vertically center content
+}
+
+.content {
+    // Content = Flesx container
+    display: flex; // Start flexbox
+}
+
+.sidebar {
+    background-color: var(--color-grey-dark-1);
+
+    flex: 0 0 18%; // Flex-grow (don't grow), flex-shrink (don't shrink), flex-basis (18%, always takes up 18%)
+
+    display: flex;
+    flex-direction: column; // Changed direction from left-to-right to top-to-bottom -> can use horizontal propoerties like justify-content
+    justify-content: space-between; // Push legal text to bottom
+}
+
+.hotel-view {
+    background-color: #fff;
+    background-color: orangered;
+    height: 80rem;
+
+    flex: 1; // Flex-grow enabled (grow as much as possible) -> takes up reamining 82%
+}
+

@@ -1,0 +1,217 @@
+//////////////////////////////////////////////////////
+// LOGO
+.logo {
+    height: 3.25rem;
+    margin-left: 2rem;
+}
+
+
+
+
+
+//////////////////////////////////////////////////////
+// SEARCH
+.search {
+    flex: 0 0 40%; // Takes up 40% of header section
+
+    display: flex; // Flex item is also flex container now
+    align-items: center; // Center at cross axis
+    justify-content: center; // Center at main axis
+
+    &__input {
+        font-family: inherit;
+        font-size: inherit;
+        color: inherit;
+
+        width: 90%; // 90 & of 40% header section
+        background-color: var(--color-grey-light-2);
+        border: none;
+        padding: .7rem 2rem;
+        border-radius: 100px; // Rounded edges in search bar -> just high number
+        margin-right: -3.25rem; // Button moves on top of the input
+
+        transition: all .2s;
+
+        &:focus {
+            outline: none;
+            width: 100%; // Effect: increase horizontal width
+            background-color: var(--color-grey-light-3); // Make darker
+        }
+
+        &::-webkit-input-placeholder {
+            font-weight: 100;
+            color: var(--color-grey-light-4);
+
+        }
+    }
+
+    &__input:focus + &__button {
+        background-color: var(--color-grey-light-3); // Button has same bg color as input
+    }
+
+    &__button {
+        border: none;
+        background-color: var(--color-grey-light-2);
+
+        &:focus {
+            outline: none;
+        }
+
+        &:active {
+            transform: translateY(2px); // Move down when clicked
+        }
+    }
+
+    &__icon {
+        // Format svg icon -> set height & width
+        height: 2rem;
+        width: 2rem;
+        fill: var(--color-grey-dark-3); // Change svg color
+    }
+}
+
+
+
+
+//////////////////////////////////////////////////////
+// USER-NAV
+.user-nav {
+    align-self: stretch; // Stretch height to take up full height of parent element (here: header)
+
+    display: flex;
+    align-items: center;
+
+    & > * {
+        // Select all direct children (here: icon-box and user)
+        padding: 0 2rem;
+        cursor: pointer;
+        height: 100%; // Hover effect over whole height
+
+        display: flex;
+        align-items: center;
+    }
+
+    & > *:hover {
+        background-color: var(--color-grey-light-2);
+    }
+
+    &__icon-box {
+        position: relative;
+    }
+
+    &__icon {
+        height: 2.25rem;
+        width: 2.25rem;
+        fill: var(--color-grey-dark-2);
+    }
+
+    &__notification {
+        font-size: .8rem;
+        height: 1.75rem;
+        width: 1.75rem;
+        border-radius: 50%;
+        background-color: var(--color-primary);
+        color: #fff;
+
+        // Positioning of element
+        position: absolute; // -> Set parent element position to relative; used icon-box, because usage on svg problematic (icon)
+        top: 1.5rem;
+        right: 1.1rem;
+
+        // Flexbox to center text
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__user-photo {
+        height: 3.75rem;
+        border-radius: 50%;
+        margin-right: 1rem;
+    }
+}
+
+//////////////////////////////////////////////////////
+// SIDE NAVIFATION
+.side-nav {
+    font-size: 1.4rem;
+    list-style: none;
+    margin-top: 3.5rem;
+
+    &__item {
+        position: relative; // Needed for item::before
+
+        &:not(:last-child) {
+            margin-bottom: .5rem;
+        }
+    }
+
+
+    // Hover effect
+    &__item::before {
+        // Small line of side-nav
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%; // Same with as list item
+        width: 3px;
+        background-color: var(--color-primary);
+
+        // Normale state shows no line
+        // transform-origin: bottom; // Default set to center
+        transform: scaleY(0);
+        transition: transform .2s,
+                    width .4s cubic-bezier(1,0,0,1) .2s, // Delay needed to see animation in x-direction (.2s)
+                    background-color .1s; 
+    }
+
+
+    &__item:hover::before,
+    &__item--active::before {
+        // Styling applied to first item (--active) in default
+
+        // Line gets scaled to full width when hover
+        transform: scaleY(1);
+        width: 100%; // Expands from 3px to 100%
+    }
+
+    &__item:active::before {
+        // Show that user clicked on item
+        background-color: var(--color-primary-light);
+    }
+
+
+    &__link:link,
+    &__link:visited {
+        color: var(--color-grey-light-1);
+        text-decoration: none; // Remove underline
+        text-transform: uppercase;
+        display: block;
+        padding: 1.5rem 3rem;
+        position: relative; // Needed to make z-index work
+        z-index: 10;
+
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon {
+        // Size as squares
+        width: 1.75rem;
+        height: 1.75rem;
+
+        margin-right: 2rem;
+        fill: currentColor; // Uses volor of current element or parent element
+    }
+}
+
+
+//////////////////////////////////////////////////////
+// LEGAL TEXT
+.legal {
+    font-size: 1.2rem;
+    color: var(--color-grey-light-4);
+    text-align: center;
+    padding: 2.5rem;
+}
