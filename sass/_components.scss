@@ -215,3 +215,16 @@
     text-align: center;
     padding: 2.5rem;
 }
+
+
+//////////////////////////////////////////////////////
+// GALLERY
+
+.gallery {
+    display: flex; // Sets picture automatically side-by-side
+
+    &__photo {
+        width: 100%;
+        display: block; // Ensures that no whitespace is below pictures what would happen if format as inline-block (default)
+    }
+}
