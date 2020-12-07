@@ -228,3 +228,115 @@
         display: block; // Ensures that no whitespace is below pictures what would happen if format as inline-block (default)
     }
 }
+
+//////////////////////////////////////////////////////
+// HOTEL OVERVIEW
+.overview {
+    border-bottom: var(--line);
+
+    display: flex;
+    align-items: center; // vertically aligned
+
+    &__heading {
+        font-size: 2.25rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 1.5rem 3rem; // Space around the text -> "breathing space"
+    }
+
+    &__stars {
+        // flex: 1; // Would grow and occupy all of the "empty" space -> no ideal solution because element should only take up the space it needs and not the whole white space -> use "margin auto"
+        margin-right: auto; // Sets starts to the left, takes up only space need for element, left space is used "as margin"
+
+        display: flex; // icon-stars has small white space below them -> Fix: Set parent elemtn (here: stars) to flex
+    }
+
+    &__icon-star,
+    &__icon-location {
+        width: 1.75rem;
+        height: 1.75rem;
+        fill: var(--color-primary);
+    }
+
+    &__location {
+        font-size: 1.2rem;
+        display: flex;
+        vertical-align: center;
+    }
+
+    &__icon-location {
+        margin-right: 1.5rem; // Margin between icon and text
+    }
+
+    &__rating {
+        background-color: var(--color-primary);
+        color: #fff;
+        margin-left: 3rem;
+        padding: 0 2.25rem; 
+
+        align-self: stretch; // Overwrite setting from parent element -> element gets strethed and occipyies all available space
+
+        display: flex;
+        flex-direction: column; // Else components would be set side-by-side with the following two settings
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__rating-average {
+        font-size: 2.25rem;
+        font-weight: 300;
+        margin-bottom: -3px; // Decrease space to bottom
+    }
+
+    &__rating-count {
+        font-size: .8rem;
+        text-transform: uppercase;
+    }
+}
+
+
+//////////////////////////////////////////////////////
+//  BUTTON INLINE
+.btn-inline {
+    border: none; // Remove defalt button
+    color: var(--color-primary);
+    font-size: inherit;
+    border-bottom: 1px solid currentColor; // Border has same color as text
+    padding-bottom: 2px; // Space between text and border
+    display: inline-block;
+    background-color: transparent; // Makes button more modular -> just takes color of element in the background
+    cursor: pointer;
+
+    transition: all .2s;
+
+
+    &:hover {
+        color: var(--color-grey-dark-1); // Border automatically gets same color, because usage of currentColor
+    }
+
+    &:focus {
+        outline: none; // Remove default blue border
+        animation: pulsate 1s infinite; // Call keyframes animation; infinirte animation once clicked
+    }
+}
+
+// Animation of button
+@keyframes pulsate{
+    0% {
+        // Initial state
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 1rem 4rem rgba(0,0,0,0.25);
+    }
+
+    100% {
+        // Final state (same as initial)
+        transform: scale(1);
+        box-shadow: none;
+    }
+}

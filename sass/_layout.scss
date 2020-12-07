@@ -11,7 +11,7 @@
     font-size: 1.4rem;
     height: 7rem; 
     background-color: #fff;
-    border-bottom: var(--color-grey-light-2);
+    border-bottom: var(--line);
 
     display: flex;
     justify-content: space-between; // Align main axis, evently distribute items
@@ -36,8 +36,30 @@
 .hotel-view {
     background-color: #fff;
 
-    height: 80rem;
+    // testting purpose -> removed: content should define needed height
+    //height: 80rem;
 
     flex: 1; // Flex-grow enabled (grow as much as possible) -> takes up reamining 82%
 }
 
+
+.detail {
+    display: flex; // Two columns are set side-by-side
+    padding: 4.5rem; // Padding around and margin betwenn columsn is the same
+    background-color: var(--color-grey-light-1);
+    border-bottom: var(--line);
+}
+
+.description {
+    font-size: 1.4rem;
+    background-color: #fff;
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+    flex: 0 0 60%; // Dont't grow, don't shrink, take up 60% of space
+    margin-right: 4.5rem; // Margin betwenn the two columns
+}
+
+.user-reviews {
+    background-color: yellowgreen;
+    flex: 1; // take up remaining space
+}
