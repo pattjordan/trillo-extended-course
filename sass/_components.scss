@@ -7,8 +7,6 @@
 
 
 
-
-
 //////////////////////////////////////////////////////
 // SEARCH
 .search {
@@ -131,6 +129,8 @@
     }
 }
 
+
+
 //////////////////////////////////////////////////////
 // SIDE NAVIFATION
 .side-nav {
@@ -207,6 +207,7 @@
 }
 
 
+
 //////////////////////////////////////////////////////
 // LEGAL TEXT
 .legal {
@@ -215,6 +216,7 @@
     text-align: center;
     padding: 2.5rem;
 }
+
 
 
 //////////////////////////////////////////////////////
@@ -228,6 +230,8 @@
         display: block; // Ensures that no whitespace is below pictures what would happen if format as inline-block (default)
     }
 }
+
+
 
 //////////////////////////////////////////////////////
 // HOTEL OVERVIEW
@@ -296,6 +300,7 @@
 }
 
 
+
 //////////////////////////////////////////////////////
 //  BUTTON INLINE
 .btn-inline {
@@ -338,5 +343,97 @@
         // Final state (same as initial)
         transform: scale(1);
         box-shadow: none;
+    }
+}
+
+
+
+//////////////////////////////////////////////////////
+//  PARAGRAPH
+.paragraph:not(:last-of-type) {
+    // last-child does not work in this case; because its not the last child of the container
+    margin-bottom: 2rem;
+}
+
+
+
+//////////////////////////////////////////////////////
+//  LIST
+.list {
+    list-style: none; // Remove bullets
+    margin: 3rem 0;
+    padding: 3rem 0;
+    border-top: var(--line);
+    border-bottom: var(--line);
+
+    display: flex; // Will try to put all elements next to each other -> looks bad
+    flex-wrap: wrap; // Lines are put into new lines (but still "side-by-side")
+
+    &__item {
+        flex: 0 0 50%; // Two elements will be side-by-side
+        margin-bottom: .7rem;
+    }
+
+    // Include svg file here in css instead of in html
+    // Reason: only have to include it once instead of multiple times (here: 8)
+    // The usage of sprite is complicated in CSS, better to just use svg item directly
+    &__item:before {
+        // Before each item element pseudo element is created;
+        content: ""; // ALWAYS specify content property!
+        display: inline-block;
+        height: 1rem;
+        width: 1rem;
+        margin-right: .7rem;
+
+        // Old approach -> Problem: If included as background image, color can not be changed
+        // background-image: url(../img/chevron-thin-right.svg);
+        // background-size: cover;
+
+        // New approach: usage of masks (works in newer browsers)
+        // Masks: Defines an area where its possible to look through the item (masks) to see the background-color -> define background color & put masks in front of it; bg-color only shown where icon is placed, rest is covered
+        background-color: var(--color-primary);
+        -webkit-mask-image: url(../img/chevron-thin-right.svg);
+        -webkit-mask-size: cover;
+
+        mask-image: url(../img/chevron-thin-right.svg);
+        mask-size: cover;
+    }
+}
+
+
+
+
+
+//////////////////////////////////////////////////////
+//  RECOMMEND
+.recommend {
+    font-size: 1.3rem;
+    color: var(--color-grey-dark-3);
+
+    display: flex;
+    align-items: center;
+
+    &__count {
+        // Element that contains text
+        margin-right: auto; // Photos will be pushed to the right side
+    }
+
+    &__friends {
+
+    }
+
+
+    &__photo {
+        box-sizing: content-box; // Border will be added to padding and width of photo; border-box includes them in the whole size
+        // Put pictures in circles
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        border: 3px solid #fff; // White border around circle
+        
+        &:not(:last-child) {
+            // Overlap pictures over each other
+            margin-right: -1.5rem;
+        }
     }
 }
