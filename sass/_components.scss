@@ -456,14 +456,22 @@
         // background-image: url(../img/chevron-thin-right.svg);
         // background-size: cover;
 
+        // NEWER BROWSERS - MASKS
         // New approach: usage of masks (works in newer browsers)
         // Masks: Defines an area where its possible to look through the item (masks) to see the background-color -> define background color & put masks in front of it; bg-color only shown where icon is placed, rest is covered
-        background-color: var(--color-primary);
-        -webkit-mask-image: url(../img/chevron-thin-right.svg);
-        -webkit-mask-size: cover;
+        @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+            // Have to specifiy some value; just used url() -> Has nothing to say here
+            background-color: var(--color-primary);
+            -webkit-mask-image: url(../img/chevron-thin-right.svg);
+            -webkit-mask-size: cover;
 
-        mask-image: url(../img/chevron-thin-right.svg);
-        mask-size: cover;
+            mask-image: url(../img/chevron-thin-right.svg);
+            mask-size: cover;
+        }
+        
+        // OLDER BROWSERS - WORKAORUND
+        
+        
     }
 }
 
