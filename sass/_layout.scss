@@ -7,7 +7,9 @@
     min-height: 50rem;
 
     @media only screen and (max-width: $bp-largest) {
-        margin: // o: 8rem auto
+        margin: 0; // o: 8rem auto
+        max-width: 100%;
+        width: 100%;
     }
 }
 
@@ -20,11 +22,21 @@
     display: flex;
     justify-content: space-between; // Align main axis, evently distribute items
     align-items: center; // vertically center content
+
+    @media only screen and (max-width: $bp-smallest) {
+        flex-wrap: wrap; // items can wrao to new line in case space is no sufficient; here: search bar will wrap to next line
+        align-content: space-around; // Manage space between rows
+        height: 10rem;// Must be increased to fit search bar on second line
+    }
 }
 
 .content {
     // Content = Flesx container
     display: flex; // Start flexbox
+
+    @media only screen and (max-width: $bp-medium) {
+        flex-direction: column; // Puts navigation on top of hotel overview
+    }
 }
 
 .sidebar {
@@ -53,6 +65,14 @@
     padding: 4.5rem; // Padding around and margin betwenn columsn is the same
     background-color: var(--color-grey-light-1);
     border-bottom: var(--line);
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 3rem; // Reduced padding
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        flex-direction: column; // Move .description and .review below each other
+    }
 }
 
 .description {
@@ -60,7 +80,17 @@
     box-shadow: var(--shadow-light);
     padding: 3rem;
     flex: 0 0 60%; // Dont't grow, don't shrink, take up 60% of space
-    margin-right: 4.5rem; // Margin betwenn the two columns
+    margin-right: 4.5rem; // Margin betwenn the two columns; same as padding in detail
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-right: 3rem; // Again same value as in detail satting
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        margin-right: 0;
+        margin-bottom: 3rem;
+    }
 }
 
 .user-reviews {

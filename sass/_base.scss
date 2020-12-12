@@ -24,6 +24,10 @@
 
 // Standard CSS variables can not be used in media queries, use SASS variables instead
 $bp-largest: 75em; // 1200px/16
+$bp-large: 68.75em; // 1100px
+$bp-medium: 56.25em;// 900px
+$bp-small: 37.5em; // 600px
+$bp-smallest: 31.25em; // 500px
 
 
 // BASIC SETUP 
@@ -43,6 +47,10 @@ $bp-largest: 75em; // 1200px/16
 html {
     box-sizing: border-box;
     font-size: 62.5%; // 1rem = 10px
+
+    @media only screen and (max-width: $bp-large) {
+        font-size: 50%; // Decrease font-size from 10px to 8px (default value 16px -> 50%)
+    }
 }
 
 body {

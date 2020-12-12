@@ -16,6 +16,12 @@
     align-items: center; // Center at cross axis
     justify-content: center; // Center at main axis
 
+    @media only screen and (max-width: $bp-smallest) {
+        order: 1; // Move search bar to the last position 
+        flex: 0 0 100%; // Element takes up 100% of width -> in combination with flex-wrap it is moved to new line
+        background-color: var(--color-grey-light-2); // Put backgroundcolor on whole element -> looka more natural
+    }
+
     &__input {
         font-family: inherit;
         font-size: inherit;
@@ -138,11 +144,24 @@
     list-style: none;
     margin-top: 3.5rem;
 
+    @media only screen and (max-width: $bp-medium) {
+        display: flex; // Elements will be side-by-side instead of stacked over each other 
+        margin: 0; // remove initial margin-top
+    }
+
     &__item {
         position: relative; // Needed for item::before
 
         &:not(:last-child) {
             margin-bottom: .5rem;
+
+            @media only screen and (max-width: $bp-medium) {
+                margin: 0;
+            }
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            flex: 1; // All four flex items can grow as much as they can -> equaly occupy together whole width
         }
     }
 
@@ -194,6 +213,16 @@
 
         display: flex;
         align-items: center;
+
+        @media only screen and (max-width: $bp-medium) {
+            justify-content: center; // Center text in box
+            padding: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            flex-direction: column; // Put symbol above text
+            padding: 1.5rem;
+        }
     }
 
     &__icon {
@@ -203,6 +232,13 @@
 
         margin-right: 2rem;
         fill: currentColor; // Uses volor of current element or parent element
+
+        @media only screen and (max-width: $bp-small) {
+            margin-right: 0; // Remove right margin
+            margin-bottom: .7rem; // Small margin between icon and text
+            width:  1.5rem; // Decrease icon size
+            height: 1.5rem;
+        }
     }
 }
 
@@ -215,6 +251,10 @@
     color: var(--color-grey-light-4);
     text-align: center;
     padding: 2.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        display: none; // Remove legal text
+    }
 }
 
 
@@ -246,7 +286,12 @@
         font-weight: 300;
         text-transform: uppercase;
         letter-spacing: 1px;
-        padding: 1.5rem 3rem; // Space around the text -> "breathing space"
+        padding: 1.5rem 3rem; // Space around the text -> "breathing space"; defines height of element
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+            padding: 1.25rem 2rem;
+        }
     }
 
     &__stars {
@@ -274,6 +319,7 @@
     }
 
     &__rating {
+        // Pink container
         background-color: var(--color-primary);
         color: #fff;
         margin-left: 3rem;
@@ -285,17 +331,29 @@
         flex-direction: column; // Else components would be set side-by-side with the following two settings
         align-items: center;
         justify-content: center;
+
+        @media only screen and (max-width: $bp-small) {
+            padding: 0 1.5rem;
+        }
     }
 
     &__rating-average {
         font-size: 2.25rem;
         font-weight: 300;
         margin-bottom: -3px; // Decrease space to bottom
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+        }
     }
 
     &__rating-count {
         font-size: .8rem;
         text-transform: uppercase;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: .5rem;
+        }
     }
 }
 
@@ -428,7 +486,7 @@
     }
 
     &__friends {
-
+        display: flex; // Photos will always stay side-by-side also when decreasing the window width
     }
 
 
@@ -442,7 +500,7 @@
         
         &:not(:last-child) {
             // Overlap pictures over each other
-            margin-right: -1.5rem;
+            margin-right: -2rem;
         }
     }
 }
@@ -458,6 +516,11 @@
     margin-bottom: 3.5rem;
     position: relative; // Needed for absolute positioning in &::before
     overflow: hidden; // quotation mark stops overflowing
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
 
     &__text {
         margin-bottom: 2rem;
@@ -519,6 +582,10 @@
 .cta {
     padding: 3.5rem 0;
     text-align: center; // Automatically centers h2 and button
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2.5rem 0;
+    }
 
     &__book-now {
         font-size: 2rem;
