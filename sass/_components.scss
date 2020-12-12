@@ -19,7 +19,7 @@
     @media only screen and (max-width: $bp-smallest) {
         order: 1; // Move search bar to the last position 
         flex: 0 0 100%; // Element takes up 100% of width -> in combination with flex-wrap it is moved to new line
-        background-color: var(--color-grey-light-2); // Put backgroundcolor on whole element -> looka more natural
+        background-color: var(--color-grey-light-2); // Put background-color on whole element -> looks more natural
     }
 
     &__input {
