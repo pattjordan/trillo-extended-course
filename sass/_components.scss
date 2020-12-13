@@ -135,10 +135,99 @@
     }
 }
 
+//////////////////////////////////////////////////////
+// EXTENDED: USER SETTINGS
+.user-settings {
+    // Positioning of pop-up
+    position: absolute;
+    top: 7rem;
+    right: 0;
+    width: 18rem;
+    z-index: 200;
+
+    // visibility: hidden; // Menu not shown in initial state
+    
+    
+    &__menu {
+        // List
+        list-style: none;
+        background-color: #fff; // Same color as header
+       
+        
+        // Flex container
+        display: flex;
+        flex-direction: column;
+        transform-origin: top;
+
+        // transform: scaleY(0); // Menu not shown in initial state
+        // transition: transform 0.2s cubic-bezier(1, 0.01, 0, 1.01);
+    }
+
+    &__option {
+        position: relative;
+
+        &:not(:last-child) {
+            margin-bottom: .5rem; // Make items bigger
+        }
+    }
+
+    &__option::before {
+        // Item
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--color-primary);
+        width: 3px;
+
+        height: 100%; // Not shown in intial state
+        // transition: height 0.2s, width 0.3s cubic-bezier(1, 0.01, 0, 1.01) 0.2s;
+        
+        
+
+        // Normale state shows no line
+        // transform-origin: bottom; // Default set to center
+        transform: scaleY(0);
+        transition: transform .1s,
+                    width .4s cubic-bezier(1,0,0,1) .1s, // Delay needed to see animation in x-direction (.2s)
+                    background-color .1s;
+
+    }
+
+    &__option:hover::before {
+        // Line gets scaled to full width when hover
+        transform: scaleY(1);
+        width: 100%; // Expands from 3px to 100%
+    }
+
+    &__link:link,
+    &__link:visited {
+        color: currentColor;
+        text-decoration: none; // Remove underline
+        text-transform: uppercase;
+        display: block;
+        padding: 1.5rem 3rem;
+        position: relative; // Needed to make z-index work
+        z-index: 10;
+
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon {
+        // Size as squares
+        width: 1.5rem;
+        height: 1.5rem;
+
+        margin-right: 2rem;
+        fill: currentColor; // Uses volor of current element or parent element
+    }
+    
+}
 
 
 //////////////////////////////////////////////////////
-// SIDE NAVIFATION
+// SIDE NAVIGATION
 .side-nav {
     font-size: 1.4rem;
     list-style: none;

@@ -31,7 +31,7 @@
 }
 
 .content {
-    // Content = Flesx container
+    // Content = Flex container
     display: flex; // Start flexbox
 
     @media only screen and (max-width: $bp-medium) {
@@ -48,6 +48,7 @@
     flex-direction: column; // Changed direction from left-to-right to top-to-bottom -> can use horizontal propoerties like justify-content
     justify-content: space-between; // Push legal text to bottom
 }
+
 
 .hotel-view {
     background-color: #fff;

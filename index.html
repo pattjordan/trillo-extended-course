@@ -32,6 +32,7 @@
                    </button>
                </form>
 
+               <!-- USER NAVIGATION -->
                <nav class="user-nav">
                    <div class="user-nav__icon-box">
                        <svg class="user-nav__icon">
@@ -45,17 +46,73 @@
                             <span class="user-nav__notification">13</span>
                         </svg>
                         
-                        <!-- Extended: User Navigation -->
-                        <ul class="user-nav__settings-menu">
-                            <li class="user-nav__settings-option">
-                                <a href="#" class="user-nav__settings-link">
-                                    <svg class="user-nav__settings-icon">
-                                        <use xlink:href="img/sprite.svg#icon-icon-cog"></use>
-                                    </svg>
-                                    <span>Bookings</span>
-                                </a>
-                            </li>
-                        </ul>
+                        <!-- Extended: User Settings -->
+                        <div class="user-settings">
+                            <ul class="user-settings__menu">
+                                <!-- Profile -->
+                                <li class="user-settings__option">
+                                    <a href="#" class="user-settings__link">
+                                        <svg class="user-settings__icon">
+                                            <use xlink:href="img/sprite.svg#icon-user"></use>
+                                        </svg>
+                                        <span>Profile</span>
+                                    </a>
+                                </li>
+
+                                <!-- Bookings -->
+                                <li class="user-settings__option">
+                                    <a href="#" class="user-settings__link">
+                                        <svg class="user-settings__icon">
+                                            <use xlink:href="img/sprite.svg#icon-ticket"></use>
+                                        </svg>
+                                        <span>Bookings</span>
+                                    </a>
+                                </li>
+                                
+                                <!-- Payments -->
+                                <li class="user-settings__option">
+                                    <a href="#" class="user-settings__link">
+                                        <svg class="user-settings__icon">
+                                            <use xlink:href="img/sprite.svg#icon-credit"></use>
+                                        </svg>
+                                        <span>Payments</span>
+                                    </a>
+                                </li>
+
+                                <!-- Settings -->
+                                <li class="user-settings__option">
+                                    <a href="#" class="user-settings__link">
+                                        <svg class="user-settings__icon">
+                                            <use xlink:href="img/sprite.svg#icon-cog"></use>
+                                        </svg>
+                                        <span>Settings</span>
+                                    </a>
+                                </li>
+
+                                <!-- Logout -->
+                                <li class="user-settings__option">
+                                    <a href="#" class="user-settings__link">
+                                        <svg class="user-settings__icon">
+                                            <use xlink:href="img/sprite.svg#icon-log-out"></use>
+                                        </svg>
+                                        <span>Logout</span>
+                                    </a>
+                                </li>
+
+                                 <!-- Help -->
+                                 <li class="user-settings__option">
+                                    <a href="#" class="user-settings__link">
+                                        <svg class="user-settings__icon">
+                                            <use xlink:href="img/sprite.svg#icon-help-with-circle"></use>
+                                        </svg>
+                                        <span>Help</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        
                      
                     </div>
                     <div class="user-nav__user">
@@ -132,7 +189,7 @@
                     <!-- SECTION OVERVIEW -->
                     <div class="overview">
                         <h1 class="overview__heading">
-                            Hotel Las Palmas
+                            Extended Version
                         </h1>
 
 
