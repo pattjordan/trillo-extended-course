@@ -324,6 +324,35 @@ body {
         width: 1.5rem;
         height: 1.5rem; } }
 
+.inbox {
+  position: absolute;
+  top: 7rem;
+  right: 0;
+  width: 40rem;
+  z-index: 200;
+  background-color: var(--color-grey-dark-1);
+  color: var(--color-grey-light-1); }
+  .inbox__header {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+  .inbox__separator {
+    content: "";
+    height: 1px;
+    width: 100%;
+    background-color: var(--color-grey-dark-3); }
+  .inbox__photo {
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    margin-right: 4rem; }
+  .inbox__message {
+    padding: 1rem 0; }
+    .inbox__message-detail {
+      display: flex;
+      align-items: center; }
+
 .legal {
   font-size: 1.2rem;
   color: var(--color-grey-light-4);
