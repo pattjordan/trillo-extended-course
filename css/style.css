@@ -204,6 +204,8 @@ body {
   .user-nav__user:hover .user-settings__menu {
     transform: scaleY(1);
     display: block; }
+  .user-nav__message-box:hover .inbox {
+    visibility: visible; }
 
 .user-settings {
   position: absolute;
@@ -217,9 +219,7 @@ body {
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    transform-origin: top;
-    transform: scaleY(0);
-    transition: transform 0.2s cubic-bezier(1, 0.01, 0, 1.01); }
+    transform-origin: top; }
   .user-settings__option {
     position: relative; }
     .user-settings__option:not(:last-child) {
@@ -330,8 +330,10 @@ body {
   right: 0;
   width: 40rem;
   z-index: 200;
-  background-color: var(--color-grey-dark-1);
-  color: var(--color-grey-light-1); }
+  visibility: hidden; }
+  .inbox__menu {
+    background-color: var(--color-grey-dark-1);
+    color: var(--color-grey-light-1); }
   .inbox__header {
     padding: 2rem;
     display: flex;

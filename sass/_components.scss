@@ -135,9 +135,9 @@
     }
 
 
-    // Needed for child element - User Settings
+    // EXTENDED User Settings - Needed for child element
     &__user {
-        position: relative; // Needed to use absokute positioning in child-element (.user-settings)
+        position: relative; // Needed to use absolute positioning in child-element (.user-settings & .inbox)
     }
 
     &__user:hover .user-settings {
@@ -148,6 +148,12 @@
         transform: scaleY(1);
         display: block;
     }
+
+    // EXTENDED Message Box - Needed for child element
+    &__message-box:hover .inbox {
+        visibility: visible;
+    }
+
 }
 
 //////////////////////////////////////////////////////
@@ -164,7 +170,6 @@
     // Popup menu
     visibility: hidden;
     
-    
     &__menu {
         // List
         list-style: none;
@@ -176,9 +181,10 @@
         flex-direction: column;
         transform-origin: top;
 
+        
         // Popup menu
-        transform: scaleY(0); // Menu not shown in initial state
-        transition: transform 0.2s cubic-bezier(1, 0.01, 0, 1.01);
+        // transform: scaleY(0); // Menu not shown in initial state
+        //transition: transform 0.2s cubic-bezier(1, 0.01, 0, 1.01);
     }
 
     &__option {
@@ -197,7 +203,7 @@
             background-color: var(--color-primary);
             width: 3px;
     
-            // Popup Menu
+            // Pink horizontal bar animation
             height: 0; // Not shown in intial state
             transition: height 0.2s, width 0.3s cubic-bezier(1, 0.01, 0, 1.01) 0.2s;
             
@@ -225,8 +231,6 @@
     }
 
     
-    
-
     &__link:link,
     &__link:visited {
         color: currentColor;
@@ -367,16 +371,26 @@
 //////////////////////////////////////////////////////
 // EXTENDED - MESSAGE BOX
 .inbox {
-    // Positioning of pop-up
+    // Positioning of message box
     position: absolute;
     top: 7rem;
     right: 0;
     width: 40rem;
     z-index: 200;
+    
+    // Popup
+    visibility: hidden; 
+    
 
-    // Coloring
-    background-color: var(--color-grey-dark-1);
-    color: var(--color-grey-light-1);
+    &__menu {
+        background-color: var(--color-grey-dark-1);
+        color: var(--color-grey-light-1);
+
+        // Popup
+        // transform: scaleY(0); // Menu not shown in initial state
+        // transition: transform 0.2s cubic-bezier(1, 0.01, 0, 1.01);
+    }
+       
 
     &__header {
         padding: 2rem;
@@ -385,7 +399,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        
     }
 
     &__icon {
