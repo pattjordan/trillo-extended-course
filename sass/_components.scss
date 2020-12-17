@@ -489,10 +489,51 @@
 
 .gallery {
     display: flex; // Sets picture automatically side-by-side
+    
+
+    // EXTENDED: Zoom animation
+    overflow: hidden;
+    
+   
+    
+    &__item {
+        // --> Img Wrapper
+        // EXTENDED: Zoom animation
+        position: absolute;        
+    }
 
     &__photo {
         width: 100%;
         display: block; // Ensures that no whitespace is below pictures what would happen if format as inline-block (default)
+
+        // EXTENDED: Hover animation
+        // transform: scale(1.15); // 115% size
+        // transition: all .5s;;
+        
+    }
+
+    &__caption {
+        // EXTENDED: Zoom animation
+        position: relative;
+        top: -10%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        font-size: 2rem;
+        font-weight: 300;
+        // color: var(--color-grey-light-4);
+        color: orangered;        
+    }
+
+    &__photo:hover {
+        // EXTENDED: Zoom animation
+        // transform: scale(1);
+    }
+
+    
+
+    &:hover &__caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
     }
 }
 
